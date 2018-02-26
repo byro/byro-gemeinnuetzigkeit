@@ -21,10 +21,20 @@ class GemeinnuetzigkeitConfiguration(SingletonModel):
     reason = models.CharField(
         null=True, blank=True,
         max_length=50,
-        verbose_name=_('reason for reduced taxes'),
+        verbose_name='Förderungszwecke, Genitiv ("zur Förderung …"), z.B. "der Bildung, sowie der Anarchie"',
     )
     notification_date = models.CharField(
         null=True, blank=True,
         max_length=50,
         verbose_name=_('last date of notification'),
+    )
+    veranlagungszeitraum = models.CharField(
+        null=True, blank=True,
+        max_length=50,
+        verbose_name=_('Veranlagungszeitraum, z.B. 2016'),
+    )
+    location = models.CharField(
+        null=True, blank=True,
+        max_length=50,
+        verbose_name=_('Unterschriftsort'),
     )
