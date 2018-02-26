@@ -42,10 +42,8 @@ class Bescheinigung(MemberView, FormView):
         if form.is_valid():
             year = form.cleaned_data['year']
             old_documents = self.object.documents.filter(category=DOCUMENT_CATEGORY, title__endswith=year)
-            old = len(old_documents)
-            document = generate_donation_receipt(self.object, year)
-            if old:
-                old_documents.delete()
+            old_documents.delete()
+            generate_donation_receipt(self.object, year)
         return redirect(self.request.path)
 
 
