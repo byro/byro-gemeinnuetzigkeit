@@ -1,6 +1,8 @@
 from django import forms
-from django.utils.timezone import now
+from django.contrib import messages
 from django.shortcuts import redirect
+from django.utils.timezone import now
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import FormView
 
 from byro.office.views.members import MemberView
@@ -43,7 +45,10 @@ class Bescheinigung(MemberView, FormView):
             year = form.cleaned_data['year']
             old_documents = self.object.documents.filter(category=DOCUMENT_CATEGORY, title__endswith=year)
             old_documents.delete()
-            generate_donation_receipt(self.object, year)
+            try:
+                generate_donation_receipt(self.object, year)
+            except Exception:
+                messages.error(request, _('No donations or paid fees for {year}.').format(year=year))
         return redirect(self.request.path)
 
 
