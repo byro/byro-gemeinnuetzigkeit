@@ -4,7 +4,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.units import mm
 from reportlab.platypus import BaseDocTemplate, Frame, Image, PageTemplate
 
-FONTSIZE = 11
+FONTSIZE = 10
 PAGESIZE = portrait(A4)
 CURRENCY = '{:.2f} €'
 
