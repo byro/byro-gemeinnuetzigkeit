@@ -1,21 +1,25 @@
 from django import forms
+from django.utils.timezone import now
+from django.shortcuts import redirect
 from django.views.generic import FormView
 
 from byro.office.views.members import MemberView
 
+from .donations import generate_donation_receipt
 from .models import DOCUMENT_CATEGORY
 
 
 class YearForm(forms.Form):
     year = forms.ChoiceField()
 
-    def __init__(self, member, *args, **kwargs):
-        super().__init__()
+    def __init__(self, *args, member=None, **kwargs):
+        super().__init__(*args, **kwargs)
         min_year = member.transactions.all().order_by('value_datetime').first()
         max_year = member.transactions.all().order_by('-value_datetime').first()
         if min_year:
-            years = range(min_year, max_year + 1)
-            self.fields.year.choices = ((y, y) for y in years)
+            current_year = now().year
+            years = range(min_year.value_datetime.year, max_year.value_datetime.year + 1)
+            self.fields['year'].choices = ((y, y) for y in years if y < current_year)
 
 
 class Bescheinigung(MemberView, FormView):
@@ -32,12 +36,16 @@ class Bescheinigung(MemberView, FormView):
         ctx['receipts'] = self.get_object().documents.filter(category=DOCUMENT_CATEGORY)
         return ctx
 
-    def form_valid(self, form):
-        old_documents = member.documents.filter(category=DOCUMENT_CATEGORY, title__endswith=form.year)
-        document = generate_donation_receipt(self.get_object(), form.year)
-        old = len(old_documents)
-        if old:
-            old.delete()
+    def post(self, request, pk):
+        self.object = self.get_object()
+        form = YearForm(self.request.POST, member=self.object)
+        if form.is_valid():
+            year = form.cleaned_data['year']
+            old_documents = self.object.documents.filter(category=DOCUMENT_CATEGORY, title__endswith=year)
+            document = generate_donation_receipt(self.object, year)
+            old = len(old_documents)
+            if old:
+                old.delete()
         return redirect(self.request.path)
 
 
