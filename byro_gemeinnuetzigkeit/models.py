@@ -5,6 +5,9 @@ from django.utils.translation import ugettext_lazy as _
 from solo.models import SingletonModel
 
 
+DOCUMENT_CATEGORY = 'zuwendungsbestaetigung'
+
+
 class GemeinnuetzigkeitConfiguration(SingletonModel):
 
     finanzamt = models.CharField(
