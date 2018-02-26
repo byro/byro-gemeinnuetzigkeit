@@ -27,8 +27,8 @@ class Bescheinigung(MemberView, FormView):
         kwargs['member'] = self.get_object()
         return kwargs
 
-    def get_context_data(self):
-        ctx = super().get_context_data()
+    def get_context_data(self, *args, **kwargs):
+        ctx = super().get_context_data(*args, **kwargs)
         ctx['receipts'] = self.get_object().documents.filter(category=DOCUMENT_CATEGORY)
         return ctx
 

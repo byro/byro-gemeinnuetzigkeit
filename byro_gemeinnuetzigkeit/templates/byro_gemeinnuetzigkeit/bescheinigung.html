@@ -3,6 +3,18 @@
 
 {% block member_content %}
 
+{% if receipts %}
+    <div class="card member-form-card">
+        <div class="card-body">
+        <ul>
+            {% for receipt in receipts %}
+            <li><a href="{{ receipt.document.url }}">{{ receipt.get_display }}</a></li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endif %}
+
 <form method='post'>
     {% csrf_token %}
     <div class="card member-form-card">
@@ -10,7 +22,7 @@
             {% bootstrap_form form layout='horizontal' %}
         </div>
         <div class="card-body">
-            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-primary" type="submit">Generate</button>
         </div>
     </div>
 </form>
