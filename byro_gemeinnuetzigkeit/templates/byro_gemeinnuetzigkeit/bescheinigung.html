@@ -1,19 +1,8 @@
 {% extends "office/member/base.html" %}
 {% load bootstrap4 %}
+{% load i18n %}
 
 {% block member_content %}
-
-{% if receipts %}
-    <div class="card member-form-card">
-        <div class="card-body">
-        <ul>
-            {% for receipt in receipts %}
-            <li><a href="{{ receipt.document.url }}">{{ receipt.get_display }}</a></li>
-            {% endfor %}
-        </ul>
-        </div>
-    </div>
-{% endif %}
 
 <form method='post'>
     {% csrf_token %}
@@ -26,4 +15,23 @@
         </div>
     </div>
 </form>
+{% if receipts %}
+    <table class="table table-bordered">
+        <thead>
+            <th>{% trans "Year" %}</th>
+            <th>{% trans "file" %}</th>
+            <th></th>
+        </thead>
+        <tbody>
+            {% for receipt in receipts %}
+                <tr>
+                    <td>{{ receipt.title }}</td>
+                    <td><a href="{{ receipt.document.url }}">{% trans "file" %}</a></td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+
 {% endblock %}
