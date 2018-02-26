@@ -2,7 +2,6 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from solo.models import SingletonModel
 
-
 DOCUMENT_CATEGORY = 'zuwendungsbestaetigung'
 
 
@@ -20,7 +19,7 @@ class GemeinnuetzigkeitConfiguration(SingletonModel):
     )
     reason = models.CharField(
         null=True, blank=True,
-        max_length=50,
+        max_length=250,
         verbose_name='Förderungszwecke, Genitiv ("zur Förderung …"), z.B. "der Bildung, sowie der Anarchie"',
     )
     notification_date = models.CharField(

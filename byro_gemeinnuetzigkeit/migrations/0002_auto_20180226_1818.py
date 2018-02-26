@@ -25,6 +25,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='gemeinnuetzigkeitconfiguration',
             name='reason',
-            field=models.CharField(blank=True, max_length=50, null=True, verbose_name='Förderungszwecke, Genitiv ("zur Förderung …"), z.B. "der Bildung, sowie der Anarchie"'),
+            field=models.CharField(blank=True, max_length=250, null=True, verbose_name='Förderungszwecke, Genitiv ("zur Förderung …"), z.B. "der Bildung, sowie der Anarchie"'),
         ),
     ]
