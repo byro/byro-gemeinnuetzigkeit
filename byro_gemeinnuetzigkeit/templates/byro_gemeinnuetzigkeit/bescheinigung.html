@@ -1,0 +1,17 @@
+{% extends "office/member/base.html" %}
+{% load bootstrap4 %}
+
+{% block member_content %}
+
+<form method='post'>
+    {% csrf_token %}
+    <div class="card member-form-card">
+        <div class="card-body">
+            {% bootstrap_form form layout='horizontal' %}
+        </div>
+        <div class="card-body">
+            <button class="btn btn-primary" type="submit">Save</button>
+        </div>
+    </div>
+</form>
+{% endblock %}
