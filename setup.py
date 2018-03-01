@@ -33,7 +33,7 @@ setup(
     author_email='rixx@cutebit.de',
     license='Apache Software License',
 
-    install_requires=['reportlab'],
+    install_requires=['reportlab', 'num2words'],
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
     cmdclass=cmdclass,

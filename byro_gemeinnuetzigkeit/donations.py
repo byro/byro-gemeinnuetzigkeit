@@ -5,6 +5,7 @@ from django.core.files.base import ContentFile
 from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
+from num2words import num2words as lib_num2words
 from reportlab.lib import colors
 from reportlab.lib.units import mm
 from reportlab.platypus import Paragraph, Spacer, Table, TableStyle
@@ -63,9 +64,9 @@ def generate_donation_receipt(member, year):
     data = [[_('Product'), _('Tax rate'), _('Net'), _('Gross')], ]
     data = [['Art', 'in Ziffern', 'in Buchstaben', 'Datum']]
     if fees:
-        data.append(['Beiträge', CURRENCY.format(fees), '', year])
+        data.append(['Beiträge', CURRENCY.format(fees), lib_num2words(fees, lang='de'), year])
     if donations:
-        data.append(['Spenden', CURRENCY.format(donations), '', year])
+        data.append(['Spenden', CURRENCY.format(donations), lib_num2words(donations, lang='de'), year])
     last_row = len(data) - 1
 
     story.append(Table(
