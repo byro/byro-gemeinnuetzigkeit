@@ -89,7 +89,7 @@ def generate_donation_receipt(member, year):
         amt=local_settings.finanzamt,
         nummer=local_settings.vat_id,
         datum=local_settings.notification_date,
-        zeitraum=''
+        zeitraum=local_settings.veranlagungszeitraum,
     )
     story.append(Paragraph(loong, style['Normal']))
     story.append(Spacer(1, 5 * mm))
