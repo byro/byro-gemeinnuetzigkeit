@@ -1,14 +1,15 @@
 from django import forms
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.urls import reverse
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import FormView
+from django.views.generic import FormView, View
 
 from byro.office.views.members import MemberView
 
 from .donations import generate_donation_receipt
-from .models import DOCUMENT_CATEGORY
+from .models import DOCUMENT_CATEGORY, GemeinnuetzigkeitConfiguration
 
 
 class YearForm(forms.Form):
@@ -52,5 +53,15 @@ class Bescheinigung(MemberView, FormView):
         return redirect(self.request.path)
 
 
-class SendBescheinigung(FormView):
-    pass
+class SendBescheinigung(MemberView, View):
+
+    def dispatch(self, *args, **kwargs):
+        member = self.get_object()
+        document = member.documents.get(pk=self.kwargs['receipt'])
+        config = GemeinnuetzigkeitConfiguration.get_solo()
+        if not config.receipt_template:
+            from byro.mails.models import MailTemplate
+            from .default import SUBJECT, TEXT
+            config.receipt_template = MailTemplate.objects.create(subject=SUBJECT, text=TEXT)
+        config.receipt_template.to_mail(member.email, attachments=[document])
+        return redirect(reverse('plugins:byro_gemeinnuetzigkeit:members.bescheinigung', kwargs={'pk': self.kwargs['pk']}))

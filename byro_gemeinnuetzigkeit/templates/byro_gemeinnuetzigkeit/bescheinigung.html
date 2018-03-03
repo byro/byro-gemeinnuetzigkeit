@@ -27,7 +27,7 @@
                 <tr>
                     <td>{{ receipt.title }}</td>
                     <td><a href="{{ receipt.document.url }}">{% trans "file" %}</a></td>
-                    <td></td>
+                    <td><a href="{% url "plugins:byro_gemeinnuetzigkeit:members.bescheinigung.send" pk=member.pk receipt=receipt.pk %}" class="btn btn-sm btn-info">{% trans "Send" %}</a></td>
                 </tr>
             {% endfor %}
         </tbody>
