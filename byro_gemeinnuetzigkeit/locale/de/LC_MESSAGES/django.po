@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 19:01+0100\n"
+"POT-Creation-Date: 2018-03-03 21:28+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: rixx\n"
 "Language-Team: \n"
@@ -10,3 +10,109 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: byro_gemeinnuetzigkeit/__init__.py:10
+msgid "byro-Plugin für gemeinnützige Vereine"
+msgstr "byro-Plugin für gemeinnützige Vereine"
+
+#: byro_gemeinnuetzigkeit/__init__.py:12
+msgid ""
+"byro-Plugin für alle Bedürfnisse des gemeinnützigen Vereins "
+"(Spendenbescheinigungen für Mitglieder)"
+msgstr ""
+"byro-Plugin für alle Bedürfnisse des gemeinnützigen Vereins "
+"(Spendenbescheinigungen für Mitglieder)"
+
+#: byro_gemeinnuetzigkeit/default.py:4
+msgid "Your Receipt"
+msgstr "Deine Zuwendungsbestätigung"
+
+#: byro_gemeinnuetzigkeit/default.py:5
+msgid ""
+"Hi,\n"
+"\n"
+"This is your official receipt for fees and donations "
+"rendered to us last\n"
+"year.  As the finance autorities usually do not want to see "
+"receipts,\n"
+"and we are not allowed to sign receipts digitally, please "
+"keep it like\n"
+"this. If you need to send it in, come around and we'll sign "
+"it.\n"
+"\n"
+"Thanks,\n"
+"the robo clerk"
+msgstr ""
+"Hi,\n"
+"\n"
+"Das ist deine offizielle Zuwendungsbestätigung für deine "
+"Spenden und\n"
+"Beiträge letztes Jahr. Da das Finanzamt in der Regel keine "
+"Belege braucht,\n"
+"und wir Bescheinigungen nicht digital signieren dürfen, "
+"behalt es mal so.\n"
+"Wenn das Finanzamt es sehen möchte, komm einfach zum "
+"Unterschreiben\n"
+"vorbei.\n"
+"\n"
+"Danke\n"
+"Das Helferlein"
+
+#: byro_gemeinnuetzigkeit/donations.py:64
+msgid "Product"
+msgstr "Produkt"
+
+#: byro_gemeinnuetzigkeit/donations.py:64
+msgid "Tax rate"
+msgstr "Steuersatz"
+
+#: byro_gemeinnuetzigkeit/donations.py:64
+msgid "Net"
+msgstr "Netto"
+
+#: byro_gemeinnuetzigkeit/donations.py:64
+msgid "Gross"
+msgstr "Brutto"
+
+#: byro_gemeinnuetzigkeit/models.py:13
+msgid "Finanzamt"
+msgstr "Finanzamt"
+
+#: byro_gemeinnuetzigkeit/models.py:18
+msgid "VAT-ID"
+msgstr "Steuernummer"
+
+#: byro_gemeinnuetzigkeit/models.py:28
+msgid "last date of notification"
+msgstr "Letztes Mitteilungsdatum"
+
+#: byro_gemeinnuetzigkeit/models.py:33
+msgid "Veranlagungszeitraum, z.B. 2016"
+msgstr "Veranlagungszeitraum, z.B. 2016"
+
+#: byro_gemeinnuetzigkeit/models.py:38
+msgid "Unterschriftsort"
+msgstr "Unterschriftsort"
+
+#: byro_gemeinnuetzigkeit/signals.py:12
+msgid "Bescheinigung"
+msgstr "Bescheinigung"
+
+#: byro_gemeinnuetzigkeit/templates/byro_gemeinnuetzigkeit/bescheinigung.html:21
+msgid "Year"
+msgstr "Jahr"
+
+#: byro_gemeinnuetzigkeit/templates/byro_gemeinnuetzigkeit/bescheinigung.html:22
+#: byro_gemeinnuetzigkeit/templates/byro_gemeinnuetzigkeit/bescheinigung.html:29
+msgid "file"
+msgstr "Datei"
+
+#: byro_gemeinnuetzigkeit/templates/byro_gemeinnuetzigkeit/bescheinigung.html:30
+msgid "Send"
+msgstr "Verschicken"
+
+#: byro_gemeinnuetzigkeit/views.py:52
+#, python-brace-format
+msgid "No donations or paid fees for {year}."
+msgstr "Keine Beiträge oder Spenden für {year}."

@@ -16,6 +16,8 @@ Development setup
 
 5. Restart your local byro server. The plugin is now in use.
 
+6. To generate new translation files: ``django-admin makemessages -l de -i build -i dist -i "*egg*"``
+
 
 License
 -------
