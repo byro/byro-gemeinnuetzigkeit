@@ -37,3 +37,9 @@ class GemeinnuetzigkeitConfiguration(SingletonModel):
         max_length=50,
         verbose_name=_('Unterschriftsort'),
     )
+    receipt_template = models.ForeignKey(
+        to='mails.MailTemplate',
+        null=True, blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+    )
