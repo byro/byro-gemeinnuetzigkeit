@@ -22,7 +22,7 @@ def generate_donation_receipt(member, year):
     donations = member.donations.filter(value_datetime__year=year).aggregate(donations=models.Sum('amount'))['donations'] or Decimal('0.00')
     address = member.address
     if (donations + fees) <= 0:
-        raise Exception(f'No donations or fees for {year}.')
+        raise Exception('No donations or fees for {year}.'.format(year=year))
 
     story = []
     _buffer = BytesIO()
