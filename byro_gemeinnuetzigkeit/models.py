@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from solo.models import SingletonModel
+
+from byro.common.models.configuration import ByroConfiguration
 
 DOCUMENT_CATEGORY = 'zuwendungsbestaetigung'
 
 
-class GemeinnuetzigkeitConfiguration(SingletonModel):
+class GemeinnuetzigkeitConfiguration(ByroConfiguration):
 
     finanzamt = models.CharField(
         null=True, blank=True,
