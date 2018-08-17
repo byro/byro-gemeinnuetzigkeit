@@ -6,6 +6,7 @@ from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import FormView, View
 
+from byro.bookkeeping.models.transaction import Transaction
 from byro.office.views.members import MemberView
 
 from .donations import generate_donation_receipt
