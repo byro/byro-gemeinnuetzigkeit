@@ -17,8 +17,8 @@ class YearForm(forms.Form):
 
     def __init__(self, *args, member=None, **kwargs):
         super().__init__(*args, **kwargs)
-        min_year = member.transactions.all().order_by('value_datetime').first()
-        max_year = member.transactions.all().order_by('-value_datetime').first()
+        min_year = Transaction.objects.filter(bookings__member=member).order_by('value_datetime').first()
+        min_year = Transaction.objects.filter(bookings__member=member).order_by('-value_datetime').first()
         if min_year:
             current_year = now().year
             years = range(min_year.value_datetime.year, max_year.value_datetime.year + 1)
