@@ -3,6 +3,7 @@ from io import BytesIO
 
 from django.core.files.base import ContentFile
 from django.db import models
+from django.utils import formats
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 from num2words import num2words as lib_num2words
@@ -104,7 +105,7 @@ def generate_donation_receipt(member, year):
     ))
 
     story.append(Spacer(1, 25 * mm))
-    data = [['{location}, {date}'.format(location=local_settings.location, date=now().date().isoformat())], ['(Ort, Datum, und Unterschrift des Zuwendungsempfängers)']]
+    data = [['{location}, {date}'.format(location=local_settings.location, date=formats.date_format(now().date(), use_l10n=True))], ['(Ort, Datum, und Unterschrift des Zuwendungsempfängers)']]
     story.append(Table(
         data=data,
         colWidths=[doc.width],
