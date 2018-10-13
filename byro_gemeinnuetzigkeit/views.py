@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib import messages
+from django.db import transaction
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.timezone import now
@@ -40,6 +41,7 @@ class Bescheinigung(MemberView, FormView):
         ctx['receipts'] = self.get_object().documents.filter(category=DOCUMENT_CATEGORY)
         return ctx
 
+    @transaction.atomic
     def post(self, request, pk):
         self.object = self.get_object()
         form = YearForm(self.request.POST, member=self.object)
@@ -48,7 +50,8 @@ class Bescheinigung(MemberView, FormView):
             old_documents = self.object.documents.filter(category=DOCUMENT_CATEGORY, title__endswith=year)
             old_documents.delete()
             try:
-                generate_donation_receipt(self.object, year)
+                receipt = generate_donation_receipt(self.object, year)
+                self.object.log(self, 'byro_gemeinnuetzigkeit.receipt.created', year=year, receipt=receipt)
             except Exception:
                 messages.error(request, _('No donations or paid fees for {year}.').format(year=year))
         return redirect(self.request.path)

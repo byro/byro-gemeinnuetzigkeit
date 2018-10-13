@@ -130,4 +130,4 @@ def generate_donation_receipt(member, year):
     )
     doc.document.save('spenden/spenden_{}_{}_{}.pdf'.format(year, member.number, member.name), ContentFile(_buffer.read()))
     doc.save()
-    return doc.document.url
+    return doc
