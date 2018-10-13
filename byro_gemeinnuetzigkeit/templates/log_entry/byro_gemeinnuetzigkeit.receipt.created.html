@@ -1,0 +1,11 @@
+{% extends "common/log_entry/base.html" %}
+{% load i18n %}
+
+{% block log_entry_content %}
+    <h5><span class="le-icon"><i class="fa fa-file"></i></span>{% trans "Receipt created" %}</h5>
+    <a href="{{log_entry.content_object.get_absolute_url}}">
+        {{log_entry.content_object.name}} ({{log_entry.content_object.number}})
+    </a>
+
+    {% include "common/log_data.html" with data=log_entry.data %}
+{% endblock %}
