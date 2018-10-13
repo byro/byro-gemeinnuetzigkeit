@@ -13,6 +13,10 @@ class PluginApp(AppConfig):
         visible = True
         version = '0.0.0'
 
+        document_categories = {
+            'byro_gemeinnuetzigkeit.receipt': ugettext_lazy('Donation/Membership receipt'),
+        }
+
     def ready(self):
         from . import signals  # NOQA
 

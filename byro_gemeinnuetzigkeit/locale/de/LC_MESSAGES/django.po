@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-03 21:28+0100\n"
+"POT-Creation-Date: 2018-10-13 11:46+0000\n"
 "PO-Revision-Date: \n"
-"Last-Translator: rixx\n"
+"Last-Translator: Henryk Plötz <henryk@ploetzli.ch>\n"
 "Language-Team: \n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2\n"
 
 #: byro_gemeinnuetzigkeit/__init__.py:10
 msgid "byro-Plugin für gemeinnützige Vereine"
@@ -23,6 +23,10 @@ msgid ""
 msgstr ""
 "byro-Plugin für alle Bedürfnisse des gemeinnützigen Vereins "
 "(Spendenbescheinigungen für Mitglieder)"
+
+#: byro_gemeinnuetzigkeit/__init__.py:17
+msgid "Donation/Membership receipt"
+msgstr "Zuwendungsbescheinigung"
 
 #: byro_gemeinnuetzigkeit/default.py:4
 msgid "Your Receipt"
@@ -59,39 +63,39 @@ msgstr ""
 "Danke\n"
 "Das Helferlein"
 
-#: byro_gemeinnuetzigkeit/donations.py:64
+#: byro_gemeinnuetzigkeit/donations.py:65
 msgid "Product"
 msgstr "Produkt"
 
-#: byro_gemeinnuetzigkeit/donations.py:64
+#: byro_gemeinnuetzigkeit/donations.py:65
 msgid "Tax rate"
 msgstr "Steuersatz"
 
-#: byro_gemeinnuetzigkeit/donations.py:64
+#: byro_gemeinnuetzigkeit/donations.py:65
 msgid "Net"
 msgstr "Netto"
 
-#: byro_gemeinnuetzigkeit/donations.py:64
+#: byro_gemeinnuetzigkeit/donations.py:65
 msgid "Gross"
 msgstr "Brutto"
 
-#: byro_gemeinnuetzigkeit/models.py:13
+#: byro_gemeinnuetzigkeit/models.py:14
 msgid "Finanzamt"
 msgstr "Finanzamt"
 
-#: byro_gemeinnuetzigkeit/models.py:18
+#: byro_gemeinnuetzigkeit/models.py:19
 msgid "VAT-ID"
 msgstr "Steuernummer"
 
-#: byro_gemeinnuetzigkeit/models.py:28
+#: byro_gemeinnuetzigkeit/models.py:29
 msgid "last date of notification"
 msgstr "Letztes Mitteilungsdatum"
 
-#: byro_gemeinnuetzigkeit/models.py:33
+#: byro_gemeinnuetzigkeit/models.py:34
 msgid "Veranlagungszeitraum, z.B. 2016"
 msgstr "Veranlagungszeitraum, z.B. 2016"
 
-#: byro_gemeinnuetzigkeit/models.py:38
+#: byro_gemeinnuetzigkeit/models.py:39
 msgid "Unterschriftsort"
 msgstr "Unterschriftsort"
 
@@ -112,7 +116,11 @@ msgstr "Datei"
 msgid "Send"
 msgstr "Verschicken"
 
-#: byro_gemeinnuetzigkeit/views.py:52
+#: byro_gemeinnuetzigkeit/templates/log_entry/byro_gemeinnuetzigkeit.receipt.created.html:5
+msgid "Receipt created"
+msgstr "Zuwendungsbescheinigung erstellt"
+
+#: byro_gemeinnuetzigkeit/views.py:56
 #, python-brace-format
 msgid "No donations or paid fees for {year}."
 msgstr "Keine Beiträge oder Spenden für {year}."
