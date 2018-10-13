@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from byro.common.models.configuration import ByroConfiguration
 
-DOCUMENT_CATEGORY = 'zuwendungsbestaetigung'
+DOCUMENT_CATEGORY = 'byro_gemeinnuetzigkeit.receipt'
 
 
 class GemeinnuetzigkeitConfiguration(ByroConfiguration):
