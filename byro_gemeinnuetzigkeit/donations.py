@@ -21,7 +21,7 @@ from .pdf import CURRENCY, FONTSIZE, get_default_document, get_paragraph_style
 def generate_donation_receipt(member, year):
     fees = member.fee_payments.filter(transaction__value_datetime__year=year).aggregate(fees=models.Sum('amount'))['fees'] or Decimal('0.00')
     donations = member.donations.filter(transaction__value_datetime__year=year).aggregate(donations=models.Sum('amount'))['donations'] or Decimal('0.00')
-    address = member.address
+    address = "{}\n{}".format(member.name, member.address)
     if (donations + fees) <= 0:
         raise Exception('No donations or fees for {year}.'.format(year=year))
 
