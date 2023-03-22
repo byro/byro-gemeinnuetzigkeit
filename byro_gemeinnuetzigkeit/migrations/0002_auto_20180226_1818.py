@@ -6,25 +6,36 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('byro_gemeinnuetzigkeit', '0001_initial'),
+        ("byro_gemeinnuetzigkeit", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='gemeinnuetzigkeitconfiguration',
-            name='location',
-            field=models.CharField(blank=True, max_length=50, null=True, verbose_name='Unterschriftsort'),
+            model_name="gemeinnuetzigkeitconfiguration",
+            name="location",
+            field=models.CharField(
+                blank=True, max_length=50, null=True, verbose_name="Unterschriftsort"
+            ),
         ),
         migrations.AddField(
-            model_name='gemeinnuetzigkeitconfiguration',
-            name='veranlagungszeitraum',
-            field=models.CharField(blank=True, max_length=50, null=True, verbose_name='Veranlagungszeitraum, z.B. 2016'),
+            model_name="gemeinnuetzigkeitconfiguration",
+            name="veranlagungszeitraum",
+            field=models.CharField(
+                blank=True,
+                max_length=50,
+                null=True,
+                verbose_name="Veranlagungszeitraum, z.B. 2016",
+            ),
         ),
         migrations.AlterField(
-            model_name='gemeinnuetzigkeitconfiguration',
-            name='reason',
-            field=models.CharField(blank=True, max_length=250, null=True, verbose_name='Förderungszwecke, Genitiv ("zur Förderung …"), z.B. "der Bildung, sowie der Anarchie"'),
+            model_name="gemeinnuetzigkeitconfiguration",
+            name="reason",
+            field=models.CharField(
+                blank=True,
+                max_length=250,
+                null=True,
+                verbose_name='Förderungszwecke, Genitiv ("zur Förderung …"), z.B. "der Bildung, sowie der Anarchie"',
+            ),
         ),
     ]

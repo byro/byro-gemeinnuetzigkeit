@@ -6,24 +6,56 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='GemeinnuetzigkeitConfiguration',
+            name="GemeinnuetzigkeitConfiguration",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('finanzamt', models.CharField(blank=True, max_length=300, null=True, verbose_name='Finanzamt')),
-                ('vat_id', models.CharField(blank=True, max_length=50, null=True, verbose_name='VAT-ID')),
-                ('reason', models.CharField(blank=True, max_length=50, null=True, verbose_name='reason for reduced taxes')),
-                ('notification_date', models.CharField(blank=True, max_length=50, null=True, verbose_name='last date of notification')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "finanzamt",
+                    models.CharField(
+                        blank=True, max_length=300, null=True, verbose_name="Finanzamt"
+                    ),
+                ),
+                (
+                    "vat_id",
+                    models.CharField(
+                        blank=True, max_length=50, null=True, verbose_name="VAT-ID"
+                    ),
+                ),
+                (
+                    "reason",
+                    models.CharField(
+                        blank=True,
+                        max_length=50,
+                        null=True,
+                        verbose_name="reason for reduced taxes",
+                    ),
+                ),
+                (
+                    "notification_date",
+                    models.CharField(
+                        blank=True,
+                        max_length=50,
+                        null=True,
+                        verbose_name="last date of notification",
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
     ]

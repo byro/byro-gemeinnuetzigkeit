@@ -2,16 +2,20 @@
 
 from django.db import migrations
 
+
 def rename_category(apps, schema_editor):
-    Document = apps.get_model('documents', 'Document')
-    for doc in Document.objects.filter(category='zuwendungsbestaetigung').all():
-        doc.category = 'byro_gemeinnuetzigkeit.receipt'
+    Document = apps.get_model("documents", "Document")
+    for doc in Document.objects.filter(category="zuwendungsbestaetigung").all():
+        doc.category = "byro_gemeinnuetzigkeit.receipt"
         doc.save()
 
-class Migration(migrations.Migration):
 
+class Migration(migrations.Migration):
     dependencies = [
-        ('byro_gemeinnuetzigkeit', '0003_gemeinnuetzigkeitconfiguration_receipt_template'),
+        (
+            "byro_gemeinnuetzigkeit",
+            "0003_gemeinnuetzigkeitconfiguration_receipt_template",
+        ),
     ]
 
     operations = [

@@ -9,7 +9,10 @@ from byro.office.signals import member_view
 def gemeinnuetzigkeit_member_view(sender, signal, **kwargs):
     member = sender
     return {
-        'label': _('Bescheinigung'),
-        'url': reverse('plugins:byro_gemeinnuetzigkeit:members.bescheinigung', kwargs={'pk': member.pk}),
-        'url_name': 'plugins:byro_gemeinnuetzigkeit',
+        "label": _("Bescheinigung"),
+        "url": reverse(
+            "plugins:byro_gemeinnuetzigkeit:members.bescheinigung",
+            kwargs={"pk": member.pk},
+        ),
+        "url_name": "plugins:byro_gemeinnuetzigkeit",
     }

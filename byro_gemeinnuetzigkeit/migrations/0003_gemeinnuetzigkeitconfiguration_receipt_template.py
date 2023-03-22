@@ -7,16 +7,21 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('mails', '0003_mailtemplate_reply_to'),
-        ('byro_gemeinnuetzigkeit', '0002_auto_20180226_1818'),
+        ("mails", "0003_mailtemplate_reply_to"),
+        ("byro_gemeinnuetzigkeit", "0002_auto_20180226_1818"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='gemeinnuetzigkeitconfiguration',
-            name='receipt_template',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='mails.MailTemplate'),
+            model_name="gemeinnuetzigkeitconfiguration",
+            name="receipt_template",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                related_name="+",
+                to="mails.MailTemplate",
+            ),
         ),
     ]
