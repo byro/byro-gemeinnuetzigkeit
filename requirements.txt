@@ -1,2 +1,0 @@
-num2words
-reportlab==3.4.0
