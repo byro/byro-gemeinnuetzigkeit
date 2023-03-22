@@ -1,9 +1,11 @@
+import string
 from decimal import Decimal
 from io import BytesIO
 
 from django.core.files.base import ContentFile
 from django.db import models
 from django.utils import formats
+from django.utils.crypto import get_random_string
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 from num2words import num2words as lib_num2words
@@ -128,6 +130,7 @@ def generate_donation_receipt(member, year):
         category=DOCUMENT_CATEGORY,
         member=member,
     )
-    doc.document.save('spenden/spenden_{}_{}_{}.pdf'.format(year, member.number, member.name), ContentFile(_buffer.read()))
+    random_string = get_random_string(length=32, allowed_chars=string.ascii_letters + string.digits)
+    doc.document.save('spenden/spenden_{}_{}_{}_{}.pdf'.format(year, member.number, member.name, random_string), ContentFile(_buffer.read()))
     doc.save()
     return doc
