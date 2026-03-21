@@ -1,5 +1,5 @@
 from django.apps import AppConfig
-from django.utils.translation import ugettext_lazy
+from django.utils.translation import gettext_lazy as _
 
 
 class PluginApp(AppConfig):
@@ -7,16 +7,16 @@ class PluginApp(AppConfig):
     verbose_name = "byro-Plugin für gemeinnützige Vereine"
 
     class ByroPluginMeta:
-        name = ugettext_lazy("byro-Plugin für gemeinnützige Vereine")
+        name = _("byro-Plugin für gemeinnützige Vereine")
         author = "rixx"
-        description = ugettext_lazy(
+        description = _(
             "byro-Plugin für alle Bedürfnisse des gemeinnützigen Vereins (Spendenbescheinigungen für Mitglieder)"
         )
         visible = True
         version = "0.0.0"
 
         document_categories = {
-            "byro_gemeinnuetzigkeit.receipt": ugettext_lazy(
+            "byro_gemeinnuetzigkeit.receipt": _(
                 "Donation/Membership receipt"
             ),
         }
